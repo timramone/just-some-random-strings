@@ -29,6 +29,14 @@ describe('random-strings', () => {
     it('should return random item', () => {
       var randomItem = randomStrings.random();
       expect(randomStrings.all).to.include(randomItem);
-    })
+    });
+
+    it('should return array of random items if number is passed', () => {
+      var randomItems = randomStrings.random(3);
+      expect(randomItems).to.have.length(3);
+      randomItems.forEach(item => {
+        expect(randomStrings.all).to.include(item);
+      });
+    });
   })
 })
